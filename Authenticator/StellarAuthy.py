@@ -7,12 +7,22 @@ from stellar_sdk.sep.exceptions import InvalidSep10ChallengeError
 from stellar_sdk.keypair import Keypair
 
 
-
+# general_server = Server(horizon_url="https://horizon.stellar.org")
 # domain = "https://sentit.io/"
 
 
 class WebAuthy:
-    def __init__(self, asset_code, asset_issuer, user_key, _horizon_url=Server(horizon_url="https://horizon.stellar.org"), _network=Network.PUBLIC_NETWORK_PASSPHRASE):
+    def __init__(self, asset_code, asset_issuer, user_key, _horizon_url="https://horizon.stellar.org", _network=Network.PUBLIC_NETWORK_PASSPHRASE):
+        """
+        Instantial the webauthy by passing in the following args
+
+        asset_code: The Asset code
+        asset_issuer: Token Asset issuer
+        user_key: The secret key to sign chanllenge transaction(user private key)
+        _horizon_url: Default is set to mainnet and is optional
+        _network: Default is set to mainnet and is optional
+        """
+        
         self.asset_code = asset_code
         self.asset_issuer = asset_issuer
         self.pub_key = Keypair.from_secret(user_key).public_key
@@ -23,7 +33,6 @@ class WebAuthy:
         # self.run_auth()
     def run_auth(self):
         url_ = f"{self.general_stellar_url}/assets?asset_code={self.asset_code}&asset_issuer={self.asset_issuer}"
-
         resquest = requests.get(url=url_)
 
 
@@ -58,7 +67,6 @@ class WebAuthy:
 
                     WEB_AUTH_ENDPOINT = toml_content['WEB_AUTH_ENDPOINT']
                 except Exception as e:
-                    print(e)
                     return {"error": 'Error Loading Toml file'}, 400
 
 
@@ -72,7 +80,6 @@ class WebAuthy:
                     }
                     getting_challeng_key = requests.get(WEB_AUTH_URL)
                     if getting_challeng_key.status_code == 200:
-                        print(getting_challeng_key.json())
                         sep_token = self.sign_sep10_tx(getting_challeng_key.json())
                         return sep_token
 
