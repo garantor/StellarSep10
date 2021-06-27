@@ -1,10 +1,16 @@
 # SEP10 WEB AUTHENTICATION TOKEN
 
+For A Full Understanding of Sep10, Please visit the official repo [READ MORE DETAILS HERE](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md#challenge).
 
-[READ MORE DETAILS HERE](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md#challenge)
 
 
-* A basic Example 
+
+After clone or fork this repo, then 
+
+```Python
+pip install -r requirements.txt
+```
+After installation, it's ready for use, Below is a basic Example of how to use the repo
 
 
 ```Python
