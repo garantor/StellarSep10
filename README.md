@@ -8,7 +8,7 @@ For A Full Understanding of Sep10, Please visit the official repo [READ MORE DET
 After clone or fork this repo, then 
 
 ```Python
-pip install -r requirements.txt
+pip install sep10
 ```
 After installation, it's ready for use, Below is a basic Example of how to use the repo
 
@@ -23,4 +23,5 @@ token = webauth.run_auth()
 
 ```
 
-[![Screenshot-2021-06-27-at-00-47-29.png](https://i.postimg.cc/3xRZ8rWQ/Screenshot-2021-06-27-at-00-47-29.png)](https://postimg.cc/TpzbQ6rt)
+
+[![Screenshot-2021-06-27-at-11-21-19.png](https://i.postimg.cc/fWFVFckz/Screenshot-2021-06-27-at-11-21-19.png)](https://postimg.cc/0rY5KJpF)

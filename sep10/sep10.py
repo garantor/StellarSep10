@@ -11,7 +11,7 @@ from stellar_sdk.keypair import Keypair
 # domain = "https://sentit.io/"
 
 
-class WebAuthy:
+class Sep10:
     def __init__(self, asset_code, asset_issuer, user_key, _horizon_url="https://horizon.stellar.org", _network=Network.PUBLIC_NETWORK_PASSPHRASE):
         """
         Instantial the webauthy by passing in the following args

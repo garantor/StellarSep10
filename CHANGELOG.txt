@@ -1,0 +1,16 @@
+Change Log
+==========
+
+
+0.0.1 (27/06/2021)
+-------------------
+- First Release
+
+0.0.2 (27/06/2021)
+------------------
+- Bug fixes
+- Updated Readme
+
+0.0.3 (28/06/2021)
+------------------
+- Added validators to list of required packages
