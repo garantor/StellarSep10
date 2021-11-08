@@ -14,3 +14,7 @@ Change Log
 0.0.3 (28/06/2021)
 ------------------
 - Added validators to list of required packages
+
+0.0.5 (08/11/2021)
+------------------
+- Updated Requirements for stellar protocol 18

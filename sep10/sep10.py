@@ -62,7 +62,6 @@ class Sep10:
 
 
             else:
-                
                 try:
 
                     WEB_AUTH_ENDPOINT = toml_content['WEB_AUTH_ENDPOINT']
@@ -93,6 +92,7 @@ class Sep10:
 
     def sign_sep10_tx(self, tx_web_content):
         WEB_AUTH_ENDPOINT = toml_content['WEB_AUTH_ENDPOINT']
+        print(toml_content['KYC_SERVER'])
             
         server_signing_key = toml_content['SIGNING_KEY']
         
@@ -104,7 +104,7 @@ class Sep10:
         transaction = envelope_object.transaction
 
 # verify that transaction source account is equal to the server's signing key
-        if transaction.source.public_key != server_signing_key:
+        if transaction.source.account_id != server_signing_key:
             raise InvalidSep10ChallengeError(
                 "Transaction source account is not equal to server's account."
             )
@@ -128,6 +128,7 @@ class Sep10:
             content = json.loads(response.content)
 
             sep10_token = content['token']
+            
 
             return sep10_token
 
