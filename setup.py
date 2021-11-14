@@ -11,8 +11,8 @@ classifiers = [
 
 setup(
     name='sep10',
-    version='0.0.3',
-    description='Stellar Sep10 Modules',
+    version='0.0.4',
+    description='Stellar Sep10 Library',
     long_description=open('README.md').read() + '\n\n' + open('CHANGELOG.txt').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/garantor/StellarSep10',  
