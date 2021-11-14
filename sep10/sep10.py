@@ -35,10 +35,6 @@ class Sep10:
         url_ = f"{self.general_stellar_url}/assets?asset_code={self.asset_code}&asset_issuer={self.asset_issuer}"
         resquest = requests.get(url=url_)
 
-
-        sep_10_token = None
-      
-
         if resquest.status_code == 200:
             token = self.sep10_successful_request(resquest.content.decode())
             return token
