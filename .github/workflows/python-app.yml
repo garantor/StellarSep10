@@ -38,7 +38,8 @@ jobs:
 
     - name: Add sep10 to Path
       run: |
-        echo "/home/runner/work/StellarSep10/sep10" >> $GITHUB_PATH
+        echo "::set-env name=PYTHONPATH::/home/runner/work/StellarSep10/sep10"
+
     - name: Run Test
       run: |
         python Test/main.py
@@ -47,3 +48,7 @@ jobs:
     #   run: |
     #     python main.py 
 
+
+
+
+        # echo "/home/runner/work/StellarSep10/sep10" >> $GITHUB_PATH
