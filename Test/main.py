@@ -2,6 +2,8 @@
 #Test for Error returned
 import sys
 sys.path.insert(0, "/home/afolabi/projects/StellarSep10/sep10")
+sys.path.insert(0, "/home/runner/work/StellarSep10/sep10")
+
 from sep10 import Sep10
 from pathlib import Path
 client_key =  Path("/home/afolabi/projects/StellarSep10/.secrets").read_text()
