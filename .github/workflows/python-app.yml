@@ -14,9 +14,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./stellarsep10
+    # defaults:
+    #   run:
+    #     working-directory: ./stellarsep10
 
     steps:
     - uses: actions/checkout@v2
