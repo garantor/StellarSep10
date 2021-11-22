@@ -36,10 +36,13 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
+    - name: check pwd
+      run: |
+        pwd
+
     - name: Add sep10 to Path
       run: |
-        echo "::set-env name=PYTHONPATH::/home/runner/work/StellarSep10/sep10"
-
+        echo "/home/runner/work/StellarSep10/sep10" >> $GITHUB_PATH
     - name: Run Test
       run: |
         python Test/main.py
@@ -48,7 +51,4 @@ jobs:
     #   run: |
     #     python main.py 
 
-
-
-
-        # echo "/home/runner/work/StellarSep10/sep10" >> $GITHUB_PATH
+# echo "::set-env name=PYTHONPATH::home/runner/work/<repo_name>"
