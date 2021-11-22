@@ -19,6 +19,9 @@ jobs:
     #     working-directory: ./stellarsep10
 
     steps:
+    - name: Add sep10 to Path
+      run: |
+        echo "/home/runner/work/StellarSep10/sep10" >> $GITHUB_PATH
     - uses: actions/checkout@v2
     - name: Set up Python 3.10
       uses: actions/setup-python@v2
@@ -40,9 +43,7 @@ jobs:
       run: |
         pwd
 
-    - name: Add sep10 to Path
-      run: |
-        echo "/home/runner/work/StellarSep10/sep10" >> $GITHUB_PATH
+   
     - name: Run Test
       run: |
         python Test/main.py
