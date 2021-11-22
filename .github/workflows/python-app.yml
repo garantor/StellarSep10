@@ -37,9 +37,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Change Directory
       run: |
-        cd Test
+        python Test/main.py
 
-    - name: run test
-      run: |
-        python main.py 
+    # - name: run test
+    #   run: |
+    #     python main.py 
 
