@@ -1,7 +1,8 @@
 #Test for token returned
 #Test for Error returned
-# import sys
-# sys.path.insert(0, "/home/afolabi/projects/StellarSep10/sep10")
+import sys
+print(sys.path)
+sys.path.insert(0, "/home/afolabi/projects/StellarSep10/sep10")
 # sys.path.insert(0, "/home/runner/work/StellarSep10/sep10")
 
 from sep10 import Sep10
