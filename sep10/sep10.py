@@ -20,7 +20,7 @@ class Sep10:
         _horizon_url: Default is set to mainnet and is optional
         _network: Default is set to mainnet and is optional
         """
-        
+
         self.asset_code = asset_code
         self.asset_issuer = asset_issuer
         self.pub_key = Keypair.from_secret(user_key).public_key
@@ -38,11 +38,11 @@ class Sep10:
         else:
             token = self.sep10_successful_request(resquest)
             return token
-    
-    
+
+
     def sep10_successful_request(self, web_content):
         try:
-            toml_url =web_content['_embedded']['records'][0]['_links']['toml']['href'] 
+            toml_url =web_content['_embedded']['records'][0]['_links']['toml']['href']
         except IndexError:
             toml_url =web_content['_embedded']['records']
         else:
@@ -66,8 +66,8 @@ class Sep10:
 
 
                     else:
-                        
-                        WEB_AUTH_URL= f"{WEB_AUTH_ENDPOINT}/?account={self.pub_key}"
+
+                        WEB_AUTH_URL= f"{WEB_AUTH_ENDPOINT}?account={self.pub_key}"
 
                         headers = {
                         "Content-type": "application/json",
@@ -81,16 +81,16 @@ class Sep10:
                         else:
                             self.sep10_failed_requests()
 
-                
+
 
             else:
                 return {"error": 'Invalide Url'}, 400
 
     def sign_sep10_tx(self, tx_web_content):
         WEB_AUTH_ENDPOINT = toml_content['WEB_AUTH_ENDPOINT']
-            
+
         server_signing_key = toml_content['SIGNING_KEY']
-        
+
         challeng_transaction = tx_web_content
         envelope_xdr = challeng_transaction['transaction']
         envelope_object = TransactionEnvelope.from_xdr(
@@ -99,7 +99,7 @@ class Sep10:
         transaction = envelope_object.transaction
 
 # verify that transaction source account is equal to the server's signing key
-        if transaction.source.public_key != server_signing_key:
+        if transaction.source.account_id != server_signing_key:
             raise InvalidSep10ChallengeError(
                 "Transaction source account is not equal to server's account."
             )
@@ -123,7 +123,7 @@ class Sep10:
             content = json.loads(response.content)
 
             sep10_token = content['token']
-            
+
 
             return sep10_token
 
